@@ -1,9 +1,9 @@
 ## Setup Instructions:
-
+https://github.com/smartcontractkit/full-blockchain-solidity-course-js
 
 ### Course State:
 
-(00:00:00) Lesson 0: Welcome To Blockchain || I'm here
+(00:00:00) Lesson 0: Welcome To Blockchain || 10min
 (00:09:05) Lesson 1: Blockchain Basics
 (02:01:16) Lesson 2: Welcome to Remix! Simple Storage
 (03:05:34) Lesson 3: Remix Storage Factory
