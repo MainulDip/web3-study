@@ -1,3 +1,3 @@
 ## Setup Instructions:
 
-## Starting:
+## Step by Step
