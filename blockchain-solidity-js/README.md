@@ -5,8 +5,8 @@ https://github.com/smartcontractkit/full-blockchain-solidity-course-js
 
 (00:00:00) Lesson 0: Welcome To Blockchain || Done
 (00:09:05) Lesson 1: Blockchain Basics || On 41:23 || On 01:20:43
-(02:01:16) Lesson 2: Welcome to Remix! Simple Storage
-(03:05:34) Lesson 3: Remix Storage Factory
+(02:01:16) Lesson 2: Welcome to Remix! Simple Storage || 02:04:47
+(03:05:34) Lesson 3: Remix Storage Factory || 
 (03:31:55) Lesson 4: Remix Fund Me
 (05:30:42) Lesson 5: Ethers.js Simple Storage
 (08:20:17) Lesson 6: Hardhat Simple Storage
@@ -35,6 +35,22 @@ https://github.com/smartcontractkit/full-blockchain-solidity-course-js
 * faucets: A crypto faucet lets users earn small crypto rewards by completing simple tasks. There are various kinds of crypto faucets, including bitcoin (BTC), Ethereum (ETH), and BNB faucets.
 * Gas: A unit of computational measurement. The more complex the transaction the more gas is used. "Gas unit price" * "Gas Used" = "Transaction Fee"
 * Genesis Block : The first block in a blockchain. No previous block before this exists
+* hash : unique fixed length string to identify a piece of data
+* hash algorithm: function that computes data into a quique hash
+* mining: The process of finding the "solution" to the blockchain "problem". Like find the matching "nonce" for a hash in a block. Nodes get paid for mining blocks.
+* block : A combination of nonce, previous unique hash, current unique hash and transactions that mined together. But implementation is different among different blockchain algorithm.
+* nonce : A "number used once" to find the solution to the blockchain problem (may be by bruteforcing, so heavey computation is used). It's also used to define the transaction numbr for an account/address.
+* Keccak-256: Ethereum's Cryptographic Hash Function
+* Elliptic Curve Digital Signature Algorithm: Used to generate public key based on private key on ETH
+* signature verificaiton: signature is hashed based on private key and can be verrified by public key
+* Gas | Block Rewards & EIP 1559:
+ - Base Gas Fee: that will cost/consumed by network fee
+ - Max Gas Fee : we are willing to pay
+ - Mas Priority : Max Gas Price + Tip for miners
+ - Brunt : total transaction fee - miner fee = Brunt (Network fee)
+
+* Input data: 0x
+* Node : A single instance in a decentralized network
 ## Step by Step Wallet Init and Transaction:
 * First thing is setting up the wallet (I.E: at Metamask). To separate workflow use brave. and install metamask's browser extension. 
 
