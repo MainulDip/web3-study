@@ -59,4 +59,4 @@ https://github.com/smartcontractkit/full-blockchain-solidity-course-js
 * Backup Faucet: https://goerlifaucet.com/
 
 ### Study Placements
-Study 1 or 2 hours per day, maybe first of the day. Do it incrementally, take around 2 months, don't try to do it fast. Just 1 or 2 hours per day, also skip some days
+Study 1 or 2 hours per day, maybe first of the day. Do it incrementally, take around 2 months, don't try to do it fast. Just 1 or 2 hours per day, also skip some days.......

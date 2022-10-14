@@ -19,3 +19,26 @@ contract SimpleStorage {
     bytes32 someBytes = "cat"; // converted to bytes // bytes2 to bytes32
 }
 ```
+
+### Visibility Specifiers || Modifiers:
+* public: visible externally and internally (creates a getter funxtion for storage/state variables)
+* private: only visible in the current contract
+* external: only visible externall (only for functions) - i.e. can only be message-called (via this.func)
+* internal: only visible internally || Default
+
+### Transaction:
+* contracts are deployed through transaction. Also when variable/s changes, it will cost another transaction.
+
+### Gas Cost: 
+The more "stuff" in the function the more more gas it costs.
+
+
+### Scope of variables:
+local scoped variable is not accessible from outside, like other programming languages.
+
+### Custom Getter:
+```solidity
+function retrieve() public view returns(uint256) {
+    return someVariableUint254;
+}
+```
