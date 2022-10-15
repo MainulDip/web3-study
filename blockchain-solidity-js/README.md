@@ -5,7 +5,7 @@ https://github.com/smartcontractkit/full-blockchain-solidity-course-js
 
 (00:00:00) Lesson 0: Welcome To Blockchain || Done
 (00:09:05) Lesson 1: Blockchain Basics || On 41:23 || On 01:20:43
-(02:01:16) Lesson 2: Welcome to Remix! Simple Storage || 02:04:47 || 02:27:47
+(02:01:16) Lesson 2: Welcome to Remix! Simple Storage || 02:04:47 || 02:27:47 || 02:43:41
 (03:05:34) Lesson 3: Remix Storage Factory || 
 (03:31:55) Lesson 4: Remix Fund Me
 (05:30:42) Lesson 5: Ethers.js Simple Storage
