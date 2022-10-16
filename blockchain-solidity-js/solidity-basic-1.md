@@ -143,3 +143,27 @@ contract SimpleStorage {
  ```
 ### EVM (Etherium Vertual Machine) compatible Blockchains:
 Avalanche, Fantom, Polygon
+
+### Instantiation and Inheritance:
+* type name = new Instance();
+* function override: make the parent function "virtual" then add override on inheritance 
+
+### Transactions Fields:
+* Nonce : tx count for the account
+* Gas Price: price per uint of gas (in wei)
+* Gas Limit: max gas that is tx can use
+* To: address that the tx is sent to
+* Value: amount of wei to send
+* Data: what to send to the to address
+* v, r, s : components of tx signature
+
+tx (transactions)
+* smart contracts like wallet have the ability to hold fund (Etherium)
+```solidity
+function fund() public payable {
+    require(msg.value > 1e18, "Didn't send enough!"); // 1e18 == 1 * 10 * 18
+
+    // require (conditin, revert)
+    // revert = undo any action before and send remaining gas back
+}
+```
