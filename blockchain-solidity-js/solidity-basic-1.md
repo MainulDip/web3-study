@@ -84,3 +84,23 @@ function addPerson(string memory _name, uint256 _favoriteNumber) public {
     person.push(newPerson);
 }
 ```
+
+
+### Memory, Storage, Calldata:
+* EVM can access and store information in six places:
+ - Stack:
+
+ - Memory: temoporary variable (ie, function's param or inside functions), it is mutable. applicable for array (sting is also array), struct or mapping types.
+
+ - Storage: parmanent variables, class/contract properties are by default get this notation.
+
+ - Calldat: temoporary variable (ie, function's param or inside functions). it is immutable, so cannot be changed
+
+ - Code :
+ - Logs:
+
+ ### Mapping:
+ ```solidity
+ mapping(string => uint256) public nameToFavoriteNumber;
+ nameToFavoriteNumber ["name"] = 1234;
+ ```
