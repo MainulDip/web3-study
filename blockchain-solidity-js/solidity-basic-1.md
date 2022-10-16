@@ -141,5 +141,5 @@ contract SimpleStorage {
    }
 }
  ```
-### EVM compatible Blockchains
+### EVM (Etherium Vertual Machine) compatible Blockchains:
 Avalanche, Fantom, Polygon

@@ -3,6 +3,7 @@ pragma solidity 0.8.17;
 
 contract SimpleStorage {
    uint256 public favoriteNumber;
+   mapping(string => uint256) public nameToFavoriteNumber;
 
     // defining new type by structure
    struct People {
@@ -18,6 +19,7 @@ contract SimpleStorage {
         // People memory newPerson = People({favoriteNumber: _favoriteNumber, name: _name});
         People memory newPerson = People(_favoriteNumber, _name);
         person.push(newPerson);
+        nameToFavoriteNumber[_name] = _favoriteNumber;
     }
 
 
