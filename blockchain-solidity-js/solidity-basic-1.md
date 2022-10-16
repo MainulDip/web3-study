@@ -87,7 +87,7 @@ function addPerson(string memory _name, uint256 _favoriteNumber) public {
 
 
 ### Memory, Storage, Calldata:
-* EVM can access and store information in six places:
+* EVM (ETH vertual machine) can access and store information in six places:
  - Stack:
 
  - Memory: temoporary variable (ie, function's param or inside functions), it is mutable. applicable for array (sting is also array), struct or mapping types.
@@ -100,7 +100,46 @@ function addPerson(string memory _name, uint256 _favoriteNumber) public {
  - Logs:
 
  ### Mapping:
- ```solidity
+ mapping is like dictionary in other languages, that store name/value pairs.
+```solidity
  mapping(string => uint256) public nameToFavoriteNumber;
  nameToFavoriteNumber ["name"] = 1234;
+```
+
+ ```solidity
+ // SPDX-License-Identifier: MIT
+pragma solidity 0.8.7;
+
+contract SimpleStorage {
+   uint256 public favoriteNumber;
+   mapping(string => uint256) public nameToFavoriteNumber;
+
+    // defining new type by structure
+   struct People {
+       uint256 favoriteNumber;
+       string name;
+   }
+
+//    People public person = People({favoriteNumber: 2, name: "Patrick"});
+
+    People[] public person; // dynamic empty array of People struct/type
+
+    function addPerson(string memory _name, uint256 _favoriteNumber) public {
+        // People memory newPerson = People({favoriteNumber: _favoriteNumber, name: _name});
+        People memory newPerson = People(_favoriteNumber, _name);
+        person.push(newPerson);
+        nameToFavoriteNumber[_name] = _favoriteNumber;
+    }
+
+
+   function store(uint256 _favoriteNumber) public {
+       favoriteNumber = _favoriteNumber;
+   }
+
+   function retrive() public view returns(uint256) {
+       return favoriteNumber;
+   }
+}
  ```
+### EVM compatible Blockchains:
+Avalanche, Fantom, Polygon
