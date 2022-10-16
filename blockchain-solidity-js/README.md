@@ -24,7 +24,7 @@ https://github.com/smartcontractkit/full-blockchain-solidity-course-js
 (31:28:32) Lesson 18: Security & Auditing 
 
 ### Terms:
-* Smart Contract: Contracts/Promises on a decentralized networks.......
+* Smart Contract: Contracts/Promises on a decentralized network.......
 * Oracle: a decentralized network
 * Daap: Decentralized App
 * Defi : Decentralized Finance
