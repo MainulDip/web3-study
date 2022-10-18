@@ -7,7 +7,7 @@ https://github.com/smartcontractkit/full-blockchain-solidity-course-js
 (00:09:05) Lesson 1: Blockchain Basics || On 41:23 || On 01:20:43
 (02:01:16) Lesson 2: Welcome to Remix! Simple Storage || 02:04:47 || 02:27:47 || 02:43:41 ||
 (03:05:34) Lesson 3: Remix Storage Factory || 03:27:41 (just deploy storagefactory project and move)
-(03:31:55) Lesson 4: Remix Fund Me
+(03:31:55) Lesson 4: Remix Fund Me || 03:49:47
 (05:30:42) Lesson 5: Ethers.js Simple Storage
 (08:20:17) Lesson 6: Hardhat Simple Storage
 (10:00:48) Lesson 7: Hardhat Fund Me
@@ -51,6 +51,7 @@ https://github.com/smartcontractkit/full-blockchain-solidity-course-js
 
 * Input data: 0x
 * Node : A single instance in a decentralized network
+* ETH -> Gwie -> wie : 1 ETH = 1000,000,000 (9) (Gwie) = 1000,000,000,000,000,000 (18) (Wie)
 ## Step by Step Wallet Init and Transaction:
 * First thing is setting up the wallet (I.E: at Metamask). To separate workflow use brave. and install metamask's browser extension. 
 

@@ -161,9 +161,17 @@ tx (transactions)
 * smart contracts like wallet have the ability to hold fund (Etherium)
 ```solidity
 function fund() public payable {
-    require(msg.value > 1e18, "Didn't send enough!"); // 1e18 == 1 * 10 * 18
+    number = 7; // cost gas because of mutating transaction
+
+    require(msg.value > 1e18, "Didn't send enough"); // 1e18 = 10 to the power 18 (wei) = 1 ETH
 
     // require (conditin, revert)
     // revert = undo any action before and send remaining gas back
 }
 ```
+
+### Chainlink and Oracle:
+https://docs.chain.link/
+Decentralised networ to convert ETH to USD.
+* Blockchain Oracle : Any device that interacts with the off-chain world to provide external data to computation to smart contracts.
+### Chainlink VRF (Verifiable Randomness Function):
