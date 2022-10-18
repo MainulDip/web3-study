@@ -170,8 +170,20 @@ function fund() public payable {
 }
 ```
 
-### Chainlink and Oracle:
-https://docs.chain.link/
-Decentralised networ to convert ETH to USD.
+### Determinism Of Blockchain and consensus and Oracle Problem:
+* Determinism in Computer Science refers to a system where the future state of the system is entirely determined by the prior state.
+* A consensus mechanism refers to any number of methodologies used to achieve agreement, trust, and security across a decentralized computer network.
+
+* Oracle Problem: If external API call's is not same/deterministic from all the decentralized node, they cannot agree to  reach the consensus. This is the oracle problem or smart contrat connectivity problem.
+
+### Chainlink and Oracle Problem:
+chainlink provide some decentralised way of making external API calls that could resolve oracle problem and help reach the consensus.
 * Blockchain Oracle : Any device that interacts with the off-chain world to provide external data to computation to smart contracts.
-### Chainlink VRF (Verifiable Randomness Function):
+https://docs.chain.link/
+* Decentralised networ to convert ETH to USD.
+* Chainlink Data Feeds: a way to connect smart contracts to the real-world data such as asset prices, reserve balances, and L2 sequencer health.
+
+* Chainlink VRF (Verifiable Randomness Function): To get random number in a decentralized net.
+* Chainlink Keepers: Event Listeners
+
+### :

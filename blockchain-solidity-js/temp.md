@@ -1,7 +1,7 @@
 
 (00:00:00) Lesson 0: Welcome To Blockchain
 
-(00:09:05) Lesson 1: Blockchain Basics
+(00:09:05) Lesson 1: Blockchain Basics.
 
            (00:18:26): The purpose of Smart Contracts
 
