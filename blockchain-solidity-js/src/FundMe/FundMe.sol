@@ -5,9 +5,9 @@ pragma solidity 0.8.17;
 // Withdraw funds
 // Set a minimum funding value in USD
 
-
 // importing directly from npm package
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+
 
 contract FundMe {
     uint256 public minimumUsd = 50;

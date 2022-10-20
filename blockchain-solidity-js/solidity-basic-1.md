@@ -20,6 +20,32 @@ contract SimpleStorage {
 }
 ```
 
+### Solidity Constructor and With Inheritance:
+* Direct
+```solidity
+contract Base {
+   uint data;
+   constructor(uint _data) public {
+      data = _data;   
+   }
+}
+contract Derived is Base (5) {
+   constructor() public {}
+}
+```
+* Indirect:
+```solidity
+contract Base {
+   uint data;
+   constructor(uint _data) public {
+      data = _data;   
+   }
+}
+contract Derived is Base {
+   constructor(uint _info) Base(_info * _info) public {}
+}
+```
+
 ### Visibility Specifiers || Modifiers:
 * public: visible externally and internally (creates a getter funxtion for storage/state variables)
 * private: only visible in the current contract
@@ -186,4 +212,143 @@ https://docs.chain.link/
 * Chainlink VRF (Verifiable Randomness Function): To get random number in a decentralized net.
 * Chainlink Keepers: Event Listeners
 
-### :
+### Solidity Destructuring:
+```solidity
+( , int price, , , ) = priceFeed.latestRoundData(); // Destructring
+```
+
+### Solidity Library:
+* defining Library: 
+```solidity
+library LibraryName {
+    // all the internal helper function definitions
+    function getConversionRate(uint256 FirstParameter, uint256 SecondParameter, uint256 ThirdParameter) {
+        // function's code
+    }
+}
+```
+* Applying Library:
+```solidty
+import "LibraryFileName.sol";
+contract SomeContract {
+    using LibraryName for type;
+
+    function someFun() public {
+        // calling library function
+        FirstParameter.getConversionRate(SecondParameter, ThirdParameter);
+    }
+}
+```
+
+### FundMe.sol with and without library:
+* without library
+```solidty
+// FundMe.sol file
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.17;
+
+// Get funds from users
+// Withdraw funds
+// Set a minimum funding value in USD
+
+// importing directly from npm package
+import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+
+
+contract FundMe {
+    uint256 public minimumUsd = 50;
+
+    function fund() public payable {
+        // number = 7; // cost gas because of mutating transaction
+
+        require(getConversionRate(msg.value) >= minimumUsd , "Didn't send enough"); // 1e18 = 10 to the power 18 (wei) = 1 ETH
+    }
+
+    
+    function getPrice() public view returns(uint256) {
+        // ABI
+        // Address (Goerli Testnet ETH - USD) 0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e);
+        
+        // ( uint80 roundID, int price, uint startedAt, uint timeStamp, uint80 answeredInRound ) = priceFeed.latestRoundData(); // Destructring
+
+        ( , int price, , , ) = priceFeed.latestRoundData(); // Destructring
+
+        return uint256(price * 1e10);
+    }
+
+    function getVersion() public view returns(uint256) {
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e);
+        return priceFeed.version();
+    }
+
+    function getConversionRate(uint256 ethAmount) public view returns(uint256) {
+        uint256 ethPrice = getPrice();
+        uint256 ethAmountInUsd = (ethPrice * ethAmount) / 1e18; // in solidity do * in parenthesis first, then devide
+        return ethAmountInUsd;  
+    }
+
+    function withdraw() public {}
+}
+```
+* using library
+```solidity
+// PriceConverter.sol File
+// importing directly from npm package
+import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+
+library PriceConverter {
+    
+    function getPrice() internal view returns(uint256) {
+        // ABI
+        // Address (Goerli Testnet ETH - USD) 0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e);
+        
+        // ( uint80 roundID, int price, uint startedAt, uint timeStamp, uint80 answeredInRound ) = priceFeed.latestRoundData(); // Destructring
+
+        ( , int price, , , ) = priceFeed.latestRoundData(); // Destructring
+
+        return uint256(price * 1e10);
+    }
+
+    function getVersion() internal view returns(uint256) {
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e);
+        return priceFeed.version();
+    }
+
+    function getConversionRate(uint256 ethAmount) internal view returns(uint256) {
+        uint256 ethPrice = getPrice();
+        uint256 ethAmountInUsd = (ethPrice * ethAmount) / 1e18; // in solidity do * in parenthesis first, then devide
+        return ethAmountInUsd;  
+    }
+}
+
+// FundMe.sol File
+import "./PriceConverter.sol";
+
+
+contract FundMe {
+
+    using PriceConverter for uint256;
+
+    uint256 public minimumUsd = 50;
+
+    address[] public funders;
+
+    mapping(address => uint256) public addressToAmountFund;
+
+    function fund() public payable {
+        // number = 7; // cost gas because of mutating transaction
+        
+        require (msg.value.getConversionRate() >= minimumUsd , "Didn't send enough"); // 1e18 = 10 to the power 18 (wei) = 1 ETH
+        
+        funders.push(msg.sender);
+        addressToAmountFund [msg.sender] = msg.value;
+    }
+
+    function withdraw() public {}
+}
+```
+
+### Checked and Unchecked:
+Prior to Solidity version 0.8, uints are unchecked ( if upper limit is excided, it will start counting from 0 again ). After V 0.8 every uints are checked ( if upperlimit is excided, it will throw an error). To make code more gas optimized, we can convert checked uint to unchecked uint by "unchecked { someUint = someUint + something; }"

@@ -67,7 +67,7 @@
 
            (04:25:03): Libraries
 
-           (04:29:54): SafeMath, Overflow Checking, and the "unchecked" keyword
+           (04:29:54): SafeMath, Overflow Checking, and the "unchecked" keyword || 04:31:42
 
            (04:34:29): Basic Solidity - For Loop
 
