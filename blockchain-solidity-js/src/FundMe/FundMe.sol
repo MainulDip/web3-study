@@ -5,42 +5,68 @@ pragma solidity 0.8.17;
 // Withdraw funds
 // Set a minimum funding value in USD
 
-// importing directly from npm package
-import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+import "./PriceConverter.sol";
 
 
 contract FundMe {
+
+    using PriceConverter for uint256;
+
     uint256 public minimumUsd = 50;
+
+    address[] public funders;
+
+    mapping(address => uint256) public addressToAmountFund;
+
+    address public owner;
+
+    constructor () {
+        owner = msg.sender; // setting the owner, whoever deploy this contract
+    }
 
     function fund() public payable {
         // number = 7; // cost gas because of mutating transaction
-
-        require(getConversionRate(msg.value) >= minimumUsd , "Didn't send enough"); // 1e18 = 10 to the power 18 (wei) = 1 ETH
-    }
-
-    
-    function getPrice() public view returns(uint256) {
-        // ABI
-        // Address (Goerli Testnet ETH - USD) 0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e
-        AggregatorV3Interface priceFeed = AggregatorV3Interface(0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e);
         
-        // ( uint80 roundID, int price, uint startedAt, uint timeStamp, uint80 answeredInRound ) = priceFeed.latestRoundData(); // Destructring
-
-        ( , int price, , , ) = priceFeed.latestRoundData(); // Destructring
-
-        return uint256(price * 1e10);
+        require (msg.value.getConversionRate() >= minimumUsd , "Didn't send enough"); // 1e18 = 10 to the power 18 (wei) = 1 ETH
+        
+        funders.push(msg.sender);
+        addressToAmountFund [msg.sender] = msg.value;
     }
 
-    function getVersion() public view returns(uint256) {
-        AggregatorV3Interface priceFeed = AggregatorV3Interface(0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e);
-        return priceFeed.version();
+    // applying modifier's checks
+    function withdraw() public onlyOwner {
+
+        // // check if sender is the owner
+        // require(msg.sender == owner, "Sender is not the owner");
+
+
+        // for (starting index,  ending index, stem amount)
+        for (uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++) {
+            address funder = funders[funderIndex];
+            addressToAmountFund[funder] = 0;
+        }
+
+        // reset funders
+        funders = new address[](0); // resetting array
+
+        // actually withdraw fund // docs : solidity-by-example.org/sending-ether/
+
+        // transfer
+        // payable(msg.sender).transfer(address(this).balance);
+        
+        // send
+        // bool sendSuccess = payable(msg.sender).send(address(this).balance);
+        // require(sendSuccess, "Send Failed");
+        
+        // call
+        (bool callSuccess, ) = payable(msg.sender).call{value: address(this).balance}("");// return two variables
+        require(callSuccess, "Call Failed");
     }
 
-    function getConversionRate(uint256 ethAmount) public view returns(uint256) {
-        uint256 ethPrice = getPrice();
-        uint256 ethAmountInUsd = (ethPrice * ethAmount) / 1e18; // in solidity do * in parenthesis first, then devide
-        return ethAmountInUsd;  
+    // creating modifire
+    modifier onlyOwner {
+        // check if sender is the owner
+        require(msg.sender == owner, "Sender is not the owner");
+        _;
     }
-
-    function withdraw() public {}
 }

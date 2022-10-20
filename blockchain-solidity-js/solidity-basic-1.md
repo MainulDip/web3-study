@@ -352,3 +352,19 @@ contract FundMe {
 
 ### Checked and Unchecked:
 Prior to Solidity version 0.8, uints are unchecked ( if upper limit is excided, it will start counting from 0 again ). After V 0.8 every uints are checked ( if upperlimit is excided, it will throw an error). To make code more gas optimized, we can convert checked uint to unchecked uint by "unchecked { someUint = someUint + something; }"
+
+### Looping:
+
+
+### modifiers:
+```solidity
+// define modifier
+modifier modifierName {
+    require ( Check is something is True, "Return Error If Failed" );
+}
+
+// use modifiers
+funstion someFun() public modifierName {
+    // this function will not execute if the modifier requirements fail
+}
+```
