@@ -408,7 +408,7 @@ fallback() external payable {
 * Hashing:
 * Yul / Assumbly:
 
-### Ether.js:
+### Ether.js Local Development Environment Settings:
 * wsl
 ```sh
 // list offline and online destors
