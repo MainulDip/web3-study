@@ -409,5 +409,14 @@ fallback() external payable {
 * Yul / Assumbly:
 
 ### Ether.js:
+* wsl
+```sh
+// list offline and online destors
+wsl -l || wsl -l -o
+// set default destro
+wsl -s <DistributionName>
+// set wsl 1 or 2
+wsl --set-version <distro name> 2
+```
 
 ### Hardhat:
