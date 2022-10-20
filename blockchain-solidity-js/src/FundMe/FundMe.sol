@@ -67,6 +67,16 @@ contract FundMe {
     modifier onlyOwner {
         // check if sender is the owner
         require(msg.sender == owner, "Sender is not the owner");
-        _;
+        _; // anything after above code
+    }
+
+        // will be called from lower level api without data
+    receive() external payable {
+        fund();
+    }
+
+    // will be called from lower level api with data
+    fallback() external payable {
+        fund();
     }
 }

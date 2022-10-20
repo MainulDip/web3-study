@@ -361,6 +361,7 @@ Prior to Solidity version 0.8, uints are unchecked ( if upper limit is excided, 
 // define modifier
 modifier modifierName {
     require ( Check is something is True, "Return Error If Failed" );
+    _; // anything after above code
 }
 
 // use modifiers
@@ -368,3 +369,45 @@ funstion someFun() public modifierName {
     // this function will not execute if the modifier requirements fail
 }
 ```
+
+### Advanced Solidity:
+* constant : constant variable cost less gas than non-constant variable. "uint256 public constant MIMUM_USD = 77;" || have to set immidiatly and once
+* immutable : can be set from constructor and once. "address public immutable i_owner;" and then set latter as usual.
+note: constant and immutables are tied with bytecode of the contract instade of memory slots. That why they are fast to compute and gas efficient.
+* custom error instade of require:
+```solidity
+// declare error outside of the contract
+error NotOwner();
+
+// apply custom error check and revert instade of require
+if (msg.sender != owner ) { revert NotOwner(); } 
+```
+
+* receive special function (lower level function on CALLDATA)
+```solidity
+// inside contract
+uint256 public result;
+receive() external payable {
+    result = 1;
+}
+// when ever transaction will happen it will be called
+```
+* callback function (special): when there are some data with transaction
+```solidity
+fallback() external payable {
+    result = 2;
+}
+```
+
+### Adavaced ++ Topics:
+* Enums:
+* Events:
+* Try / Catch:
+* Function Selectors:
+* abi.encode / decode:
+* Hashing:
+* Yul / Assumbly:
+
+### Ether.js:
+
+### Hardhat:

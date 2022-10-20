@@ -99,7 +99,7 @@
 
            (05:53:47): Installation & Setup - Moving to local development
 
-           (06:02:39): Windows Install
+           (06:02:39): Windows Install || solving
 
            (06:12:49): Working with Gitpod
 
