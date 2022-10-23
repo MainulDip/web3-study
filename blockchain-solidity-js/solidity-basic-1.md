@@ -419,4 +419,11 @@ wsl -s <DistributionName>
 wsl --set-version <distro name> 2
 ```
 
-### Hardhat:
+### solc.js:
+```sh
+// adding solc js
+yard add solc@0.8.7-fixed
+// compiling solidity contract
+yarn solcjs --bin --abi --include-path node_modules/ --bas
+e-path . -o . SimpleStorage.sol
+```
