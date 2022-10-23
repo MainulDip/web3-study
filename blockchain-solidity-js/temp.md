@@ -109,7 +109,7 @@
 
            (06:38:07): Asynchronous programming in Javascript
 
-           (06:46:16): Compiling our Solidity
+           (06:46:16): Compiling our Solidity ||||
 
            (06:55:12): Ganache & Networks
 

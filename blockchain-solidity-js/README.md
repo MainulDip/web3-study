@@ -1,7 +1,7 @@
 ## Setup Instructions:
 https://github.com/smartcontractkit/full-blockchain-solidity-course-js
 
-### Course State:
+### Course States:
 
 (00:00:00) Lesson 0: Welcome To Blockchain || Done
 (00:09:05) Lesson 1: Blockchain Basics || On 41:23 || On 01:20:43

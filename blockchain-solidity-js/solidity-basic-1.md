@@ -427,3 +427,5 @@ yard add solc@0.8.7-fixed
 yarn solcjs --bin --abi --include-path node_modules/ --bas
 e-path . -o . SimpleStorage.sol
 ```
+
+### Package setup

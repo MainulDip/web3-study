@@ -4,3 +4,4 @@ Different Apps In This Directory:
 * Solidity-basic
 * Storage-Factory
 * Fund Me
+* SimpleStorage Local Devs
