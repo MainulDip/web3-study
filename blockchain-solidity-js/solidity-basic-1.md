@@ -434,6 +434,7 @@ e-path . -o . SimpleStorage.sol
 Ganache is a fake blockchain server like remix or hardhat use.
 * Install: https://trufflesuite.com/ganache/
 * Change Ganache Server Settings to vEHTHERNET(WSL) in order to call from wsl
+* network issue: https://ethereum.stackexchange.com/questions/130553/wsl-ubuntu-to-ganache-gui-on-windows-10-network-connection-error
 
 ### Ether.js Setup:
 ```sh
