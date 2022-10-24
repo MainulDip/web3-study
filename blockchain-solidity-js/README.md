@@ -52,6 +52,7 @@ https://github.com/smartcontractkit/full-blockchain-solidity-course-js
 * Input data: 0x
 * Node : A single instance in a decentralized network
 * ETH -> Gwie -> wie : 1 ETH = 1000,000,000 (9) (Gwie) = 1000,000,000,000,000,000 (18) (Wie)
+* RPC : Remote Procedural Call (API call)
 ## Step by Step Wallet Init and Transaction:
 * First thing is setting up the wallet (I.E: at Metamask). To separate workflow use brave. and install metamask's browser extension. 
 

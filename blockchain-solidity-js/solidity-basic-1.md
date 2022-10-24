@@ -429,3 +429,13 @@ e-path . -o . SimpleStorage.sol
 ```
 
 ### Package setup
+
+### Ganache & Networks:
+Ganache is a fake blockchain server like remix or hardhat use.
+* Install: https://trufflesuite.com/ganache/
+* Change Ganache Server Settings to vEHTHERNET(WSL) in order to call from wsl
+
+### Ether.js Setup:
+```sh
+yarn add ethers
+```
