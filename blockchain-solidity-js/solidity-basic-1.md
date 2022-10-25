@@ -436,6 +436,9 @@ Ganache is a fake blockchain server like remix or hardhat use.
 * Change Ganache Server Settings to vEHTHERNET(WSL) in order to call from wsl
 * network issue: https://ethereum.stackexchange.com/questions/130553/wsl-ubuntu-to-ganache-gui-on-windows-10-network-connection-error
 
+* change network id to 1337 from server settings to use chainId: 1337 in transaction
+
+
 ### Ether.js Setup:
 ```sh
 yarn add ethers
